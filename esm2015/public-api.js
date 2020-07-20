@@ -1,0 +1,7 @@
+/*
+ * Public API Surface of email
+ */
+export * from './lib/email.service';
+export * from './lib/email.component';
+export * from './lib/email.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL2VtYWlsL3NyYy9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyxxQkFBcUIsQ0FBQztBQUNwQyxjQUFjLHVCQUF1QixDQUFDO0FBQ3RDLGNBQWMsb0JBQW9CLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIGVtYWlsXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9saWIvZW1haWwuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9lbWFpbC5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvZW1haWwubW9kdWxlJztcbiJdfQ==

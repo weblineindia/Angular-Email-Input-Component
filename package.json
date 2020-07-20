@@ -1,0 +1,47 @@
+{
+  "name": "angular-weblineindia-email",
+  "version": "1.0.0",
+  "description": "AngularJS based Email component, provides option to add single / multiple email input field with validation. The email value is automatically validated on blur event. You can change validation message using props. You can also disable email field using disable props.",
+  "author": "weblineindia",
+  "license": "MIT",
+  "repository": "https://github.com/weblineindia/AngularJS-Email",
+  "homepage": "https://www.weblineindia.com/software-development-resources.html",
+  "keywords": [
+    "angular-weblineindia-email",
+    "email-validation-component",
+    "email-input",
+    "angularjs-email-input",
+    "multi-email-input"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0",
+    "@fortawesome/angular-fontawesome": "^0.2.1",
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "main": "bundles/angular-weblineindia-email.umd.js",
+  "module_ivy_ngcc": "__ivy_ngcc__/fesm2015/angular-weblineindia-email.js",
+  "module": "fesm2015/angular-weblineindia-email.js",
+  "es2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/angular-weblineindia-email.js",
+  "es2015": "fesm2015/angular-weblineindia-email.js",
+  "esm2015": "esm2015/angular-weblineindia-email.js",
+  "fesm2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/angular-weblineindia-email.js",
+  "fesm2015": "fesm2015/angular-weblineindia-email.js",
+  "typings": "angular-weblineindia-email.d.ts",
+  "metadata": "angular-weblineindia-email.metadata.json",
+  "sideEffects": false,
+  "__processed_by_ivy_ngcc__": {
+    "es2015": "10.0.2",
+    "fesm2015": "10.0.2",
+    "module": "10.0.2",
+    "typings": "10.0.2"
+  },
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
+  }
+}
