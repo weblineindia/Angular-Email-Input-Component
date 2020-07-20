@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import * as ɵngcc0 from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class EmailComponent {
     faPlus: any;
     faMinus: any;
@@ -26,8 +26,6 @@ export declare class EmailComponent {
     onBlur(event: any, id: any, emailArray: any): void;
     onFocus(event: any, index: any): void;
     onPlusClick(): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<EmailComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<EmailComponent, "lib-email", never, { "maxlength": "maxlength"; "emailFormateError": "emailFormateError"; "duplicateEmailError": "duplicateEmailError"; "name": "name"; "id": "id"; "disabled": "disabled"; "value": "value"; "isMultiple": "isMultiple"; "placeholder": "placeholder"; "isShowPlus": "isShowPlus"; "tabindex": "tabindex"; "index": "index"; "emailArray": "emailArray"; }, { "focus": "focus"; "blur": "blur"; "change": "change"; "onPlus": "onPlus"; }, never, never>;
+    static ɵfac: i0.ɵɵFactoryDef<EmailComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<EmailComponent, "lib-email", never, { "maxlength": "maxlength"; "emailFormateError": "emailFormateError"; "duplicateEmailError": "duplicateEmailError"; "name": "name"; "emailArray": "emailArray"; "id": "id"; "disabled": "disabled"; "value": "value"; "isMultiple": "isMultiple"; "placeholder": "placeholder"; "isShowPlus": "isShowPlus"; "tabindex": "tabindex"; "index": "index"; }, { "focus": "focus"; "blur": "blur"; "change": "change"; "onPlus": "onPlus"; }, never, never>;
 }
-
-//# sourceMappingURL=email.component.d.ts.map
