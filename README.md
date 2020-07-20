@@ -24,7 +24,7 @@ AngularJS based Email component, provides option to add single / multiple email 
 
 ## Demo
 
-[![](email.gif)](https://github.com/weblineindia/AngularJS-Email/email.gif)
+[![](emailNG.gif)](https://github.com/weblineindia/AngularJS-Email/emailNG.gif)
 
 ## Getting started
 

@@ -1,6 +1,6 @@
 {
   "name": "angular-weblineindia-email",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AngularJS based Email component, provides option to add single / multiple email input field with validation. The email value is automatically validated on blur event. You can change validation message using props. You can also disable email field using disable props.",
   "author": "weblineindia",
   "license": "MIT",
