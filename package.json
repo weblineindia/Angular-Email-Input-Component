@@ -1,35 +1,25 @@
 {
-  "name": "angular-weblineindia-email",
-  "version": "1.0.2",
-  "description": "AngularJS based Email component, provides option to add single / multiple email input field with validation. The email value is automatically validated on blur event. You can change validation message using props. You can also disable email field using disable props.",
-  "author": "weblineindia",
-  "license": "MIT",
-  "repository": "https://github.com/weblineindia/AngularJS-Email",
-  "homepage": "https://www.weblineindia.com/software-development-resources.html",
-  "keywords": [
-    "angular-weblineindia-email",
-    "email-validation-component",
-    "email-input",
-    "angularjs-email-input",
-    "multi-email-input"
-  ],
+  "name": "angular-weblineindia-email-input",
+  "version": "1.0.1",
   "peerDependencies": {
-    "@angular/common": "^10.0.0",
-    "@angular/core": "^10.0.0",
-    "@fortawesome/angular-fontawesome": "^0.2.1",
-    "@fortawesome/fontawesome-free": "^5.13.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.29",
-    "@fortawesome/free-solid-svg-icons": "^5.13.1"
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
-  "main": "bundles/angular-weblineindia-email.umd.js",
-  "module": "fesm2015/angular-weblineindia-email.js",
-  "es2015": "fesm2015/angular-weblineindia-email.js",
-  "esm2015": "esm2015/angular-weblineindia-email.js",
-  "fesm2015": "fesm2015/angular-weblineindia-email.js",
-  "typings": "angular-weblineindia-email.d.ts",
-  "metadata": "angular-weblineindia-email.metadata.json",
-  "sideEffects": false
+  "sideEffects": false,
+  "module": "fesm2022/angular-weblineindia-email-input.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2022": "./esm2022/angular-weblineindia-email-input.mjs",
+      "esm": "./esm2022/angular-weblineindia-email-input.mjs",
+      "default": "./fesm2022/angular-weblineindia-email-input.mjs"
+    }
+  }
 }

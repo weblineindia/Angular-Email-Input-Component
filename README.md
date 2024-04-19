@@ -1,6 +1,6 @@
-# AngularJS - Email Input Component with Validation
+# Angular - Email Component
 
-AngularJS based Email component, provides option to add single / multiple email input field with validation. The email value is automatically validated on blur event. You can change validation message using props. You can also disable email field using disable props.
+A Angular based Email component used to specify an input field where the user can enter data.
 
 ## Table of contents
 
@@ -17,14 +17,14 @@ AngularJS based Email component, provides option to add single / multiple email 
 - [Keywords](#Keywords)
 
 ## Browser Support
-
 | ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | 83.0 ✔                                                                                   | 77.0 ✔                                                                                      | 13.1.1 ✔                                                                                 | 83.0 ✔                                                                             | 11.9 ✔                                                                                                                       |
 
+
 ## Demo
 
-[![](emailNG.gif)](https://github.com/weblineindia/AngularJS-Email/emailNG.gif)
+[![](textNg.gif)](https://github.com/weblineindia/AngularJS-Email/textNg.gif)
 
 ## Getting started
 
@@ -44,10 +44,10 @@ Add in app.module.ts file
 
 ```typescript
 import { NgModule } from "@angular/core";
-import { EmailModule } from "angular-weblineindia-email";
+import { AngularWeblineindiaEmailInputModule } from "angular-weblineindia-email";
 
 @NgModule({
-  imports: [EmailModule]
+  imports: [AngularWeblineindiaEmailInputModule],
 })
 export class AppModule {}
 ```
@@ -55,43 +55,29 @@ export class AppModule {}
 Add in app.component.ts file
 
 ```typescript
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-
 export class AppComponent {
-  faPlus: any = faPlus;
-  faMinus: any = faMinus;
+  isInvalidEmail: boolean = false;
+  invalidMessage: string = "";
 
-  values: any = [{ email: "" }];
+  onFocus(event: any) {}
 
-  emailValue: any = {
-    placeholder: "Enter Email",
-    maxlength: 50,
-    emailFormateError: "Email is not valid",
-    duplicateEmailError: "Do not enter same email",
-    name: "email",
-    id: "email",
-    disabled: false,
-    value: "",
-    isMultiple: true,
-    isShowPlus: true,
-    tabindex: 0,
-    index: 0
-  };
+  onBlur(event: any) {}
 
-  onFocus(event) {
-    event.target.placeholder = "";
-  }
+  onKeyPressHandler(event: any) {}
 
-  onBlur(event) {
-    event.target.placeholder = this.emailValue.placeholder;
-  }
+  onKeyDownHandler(event: any): void {}
 
-  onChange(data) {
-    this.values[data.index].email = data.event.target.value;
-  }
+  onKeyUpHandler(event: any): void {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const isValid = emailRegex.test(event?.target?.value);
 
-  onAddMultipleEmail() {
-    this.values.push({ email: "" });
+    if (!isValid) {
+      this.isInvalidEmail = true;
+      this.invalidMessage = "Invalid email format";
+    } else {
+      this.isInvalidEmail = false;
+      this.invalidMessage = "";
+    }
   }
 }
 ```
@@ -99,57 +85,43 @@ export class AppComponent {
 Add in app.component.html file
 
 ```html
-<div *ngFor="let value of values;let indexOfelement=index;">
-  <lib-email
-    [placeholder]="emailValue.placeholder"
-    [maxlength]="emailValue.maxlength"
-    [emailFormateError]="emailValue.emailFormateError"
-    [duplicateEmailError]="emailValue.duplicateEmailError"
-    [name]="emailValue.name"
-    [id]="emailValue.id"
-    [disabled]="emailValue.disabled"
-    [value]="value.email"
-    [isMultiple]="emailValue.isMultiple"
-    [isShowPlus]="values.length-1 === indexOfelement"
-    [tabindex]="emailValue.tabindex"
-    [index]="indexOfelement"
-    [emailArray]="values"
-    (focus)="onFocus($event)"
-    (blur)="onBlur($event)"
-    (change)="onChange($event)"
-    (onPlus)="onAddMultipleEmail()"
-  ></lib-email>
-</div>
+<angular-weblineindia-email [placeholder]="'Enter your email'" [disabled]="false" [value]="'yourname@domain.com'" [required]="true" [isInvalidEmail]="isInvalidEmail" [invalidMessage]="invalidMessage" [class]="'emailInput'" [errorClass]="'errorMessage'" (focus)="onFocus($event)" (blur)="onBlur($event)" (KeyPress)="onKeyPressHandler($event)" (KeyDown)="onKeyDownHandler($event)" (KeyUp)="onKeyUpHandler($event)"> </angular-weblineindia-email>
+```
+
+Add in app.component.css file
+
+```typescript
+::ng-deep .emailInput {
+  /* Add your custom styles here */
+}
+
+::ng-deep .errorMessage {
+  /* Add your custom styles here */
+}
+
 ```
 
 ## Available Props
 
-| Prop                | Type          | default                 | Description                                   |
-| ------------------- | ------------- | ----------------------- | --------------------------------------------- |
-| maxlength           | Number        | 50                      | maxlength for email                           |
-| id                  | String        |                         | email id                                      |
-| emailFormateError   | String        | Email is not valid      | email formate validation                      |
-| duplicateEmailError | String        | Do not enter same email | duplicate email error                         |
-| onMultipleEmail     | Function      |                         | when click on plus icon on email              |
-| name                | String        | email                   | email name.                                   |
-| index               | Number        | 0                       | email index.                                  |
-| emailArray              | Array[Object] | [{email : ''}]          | email default array                           |
-| isMultiple          | Boolean       | true                    | flag to implement multiple email              |
-| isShowPlus          | Boolean       | false                   | flag to show plus icon for add multiple email |
-| placeholder         | String        | Email                   | email placeholder                             |
-| disabled            | Boolean       | false                   | disable input field                           |
-| tabindex            | Number        | 0                       | email tabIndex                                |
-| value            | String        |                     | email value                              |
+| Prop           | Type    | Default | Description                                                   |
+| -------------- | ------- | ------- | ------------------------------------------------------------- |
+| placeholder    | String  |         | The placeholder text displayed in the input field.            |
+| disabled       | Boolean | false   | If true, disables the input field.                            |
+| required       | Boolean | false   | If true, makes the input field mandatory.                     |
+| isInvalidEmail | Boolean | false   | If true, adds a styling to indicate an invalid email format.  |
+| invalidMessage | String  |         | The error message displayed when the email format is invalid. |
+| class          | String  |         | Additional CSS class(es) to apply to the input field.         |
+| errorClass     | String  |         | CSS class applied when the email format is invalid.           |
 
 ## Methods
 
-| Name        | Description                                         |
-| ----------- | --------------------------------------------------- |
-| focus       | Gets triggered when the input field receives focus. |
-| blur        | Gets triggered when the input field loses focus.    |
-| change | Gets triggered every time when input got changed.        |
-| onPlus | Gets triggered every time when click on plus button.        |
-
+| Name     | Description                                                      |
+| -------- | ---------------------------------------------------------------- |
+| focus    | Gets triggered when the autocomplete input field receives focus. |
+| blur     | Gets triggered when the autocomplete input field loses focus.    |
+| KeyPress | Gets triggered when a key gets pressed.                          |
+| KeyDown  | Gets triggered when a key gets down.                             |
+| KeyUp    | Gets triggered when a key gets up.                               |
 
 ## Want to Contribute?
 
@@ -175,8 +147,8 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [MIT](LICENSE)
 
-[mit]: https://github.com/weblineindia/AngularJS-Email/blob/master/LICENSE
+[mit]: https://github.com/weblineindia/AngularJS-Text-Box/blob/master/LICENSE
 
 ## Keywords
 
-angular-weblineindia-email, email-validation-component, email-input, angularjs-email-input, multi-email-input
+angular-weblineindia-email, email, input, angular, angular-component, email-input-component
